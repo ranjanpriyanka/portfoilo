@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priyanka Ranjan | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(-45deg, #0f0c29, #302b63, #00c6ff);
+            background-size: 400% 400%;
+            animation: gradientMove 12s ease infinite;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Sparkles */
+        .sparkle {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: float 6s linear infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) scale(0);
+            }
+
+            100% {
+                transform: translateY(-10vh) scale(1);
+            }
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #00eaff;
+        }
+
+        section {
+            padding: 120px 20px 60px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 44px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .name-highlight {
+            color: #00eaff;
+            font-weight: 800;
+        }
+
+        .section-title {
+            font-size: 26px;
+            margin-bottom: 30px;
+            color: #00eaff;
+            text-transform: uppercase;
+        }
+
+        .intro {
+            max-width: 850px;
+            margin: 20px auto;
+            line-height: 1.7;
+            color: #e0f2ff;
+        }
+
+        /* Profile Photo */
+        .profile-container {
+            margin: 25px 0;
+        }
+
+        .profile-pic {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #00eaff;
+            box-shadow: 0 0 25px rgba(0, 234, 255, 0.6);
+            transition: 0.3s;
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(0, 234, 255, 0.9);
+        }
+
+        /* Robot */
+        .robot-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 40px auto;
+            animation: moveRobot 6s linear infinite alternate;
+        }
+
+        @keyframes moveRobot {
+            from {
+                transform: translateX(-80px);
+            }
+
+            to {
+                transform: translateX(80px);
+            }
+        }
+
+        .robot {
+            font-size: 70px;
+        }
+
+        .speech {
+            background: white;
+            color: black;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        /* Flip Cards */
+        .cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        .flip-card {
+            background: transparent;
+            width: 220px;
+            height: 140px;
+            perspective: 1000px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            backface-visibility: hidden;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 15px rgba(0, 234, 255, 0.4);
+        }
+
+        .flip-card-back {
+            transform: rotateY(180deg);
+            background: rgba(0, 234, 255, 0.35);
+            font-size: 14px;
+        }
+
+        /* Project Section */
+        .project {
+            max-width: 950px;
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            text-align: left;
+            box-shadow: 0 0 25px rgba(0, 234, 255, 0.4);
+        }
+
+        .project h3 {
+            color: #00eaff;
+            margin-bottom: 15px;
+        }
+
+        .project p {
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        /* Contact */
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            color: white;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            transition: 0.3s;
+        }
+
+        .contact-links a:hover {
+            background: #00eaff;
+            color: black;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            color: #c7f9ff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Sparkles -->
+    <div class="sparkle" style="left:15%; animation-delay:0s;"></div>
+    <div class="sparkle" style="left:35%; animation-delay:2s;"></div>
+    <div class="sparkle" style="left:60%; animation-delay:4s;"></div>
+    <div class="sparkle" style="left:80%; animation-delay:1s;"></div>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#tech">Tech</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="about">
+        <h1>Hello, I’m <span class="name-highlight">PRIYANKA RANJAN</span></h1>
+
+        
+
+        <div class="intro">
+            I am a passionate Computer Science student at Banasthali Vidyapith with a strong interest in Artificial
+            Intelligence and Machine Learning.
+            I love building innovative, real-world tech solutions that are scalable, practical, and impactful.
+        </div>
+
+        <div class="robot-wrapper">
+            <div class="speech">Hii 👋</div>
+            <div class="robot">🤖</div>
+        </div>
+    </section>
+
+    <section id="tech">
+        <div class="section-title">Tech Flashcards</div>
+        <div class="cards">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">Artificial Intelligence</div>
+                    <div class="flip-card-back">Designing intelligent systems that mimic human thinking.</div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">Machine Learning</div>
+                    <div class="flip-card-back">Building models that learn and improve from data.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="section-title">Skills</div>
+        <div class="cards">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">HTML</div>
+                    <div class="flip-card-back">Structured web development.</div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">CSS</div>
+                    <div class="flip-card-back">Modern UI design and layouts.</div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">Python</div>
+                    <div class="flip-card-back">AI, automation and backend logic.</div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">JavaScript</div>
+                    <div class="flip-card-back">Interactive and dynamic websites.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="Projects">
+        <div class="section-title">Hackathons</div>
+
+        <div class="project">
+            <h3>Disaster Rescue Wearable & Drone Relay System</h3>
+            <p>A network-independent wearable device using GPS + LoRa to transmit SOS signals during disasters when
+                mobile networks collapse.</p>
+            <p>Drones collect the signals and send them to a central dashboard showing real-time survivor clusters,
+                helping rescue teams respond faster and prioritize critical zones.</p>
+        </div>
+
+        <div class="project">
+            <h3>AI Travel Chatbot</h3>
+            <p>An intelligent chatbot providing hotel suggestions, destinations, food recommendations and weather
+                updates using API integration and filtering logic.</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-title">Contact Me</div>
+        <div class="contact-links">
+            <a href="mailto:ahujapriynka2324@gmail.com">Email Me</a>
+            <a href="https://www.linkedin.com/in/priyanka-r-238055332" target="_blank">LinkedIn</a>
+        </div>
+        <br><br>
+        <h3>Banasthali Vidyapith</h3>
+    </section>
+
+    <footer>
+        © 2026 Priyanka Ranjan | All Rights Reserved
+    </footer>
+
+</body>
+
+</html>
